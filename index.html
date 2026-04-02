@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>EG Dental Lab - EG Dental Lab HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --form-primary: #0A58CA;
+            --form-bg: #F8F9FA;
+            --form-border: #DEE2E6;
+            --form-text: #212529;
+        }
+
+        /* --- تصميم قسم الفروع الجديد --- */
+        .custom-branches-container {
+            max-width: 900px;
+            margin: 50px auto 40px auto;
+            text-align: center;
+            direction: rtl;
+        }
+
+        .custom-branches-title {
+            color: var(--form-primary);
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .custom-branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 0 15px;
+        }
+
+        .custom-branch-card {
+            background-color: var(--form-bg);
+            border: 1px solid var(--form-border);
+            border-radius: 12px;
+            padding: 25px 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .custom-branch-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: var(--form-primary);
+        }
+
+        .custom-branch-name {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--form-text);
+        }
+
+        .custom-branch-phone {
+            color: #6c757d;
+            font-size: 16px;
+            direction: ltr;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* --- تصميم نموذج طلب الطباعة --- */
+        .custom-form-container {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            background-color: var(--form-bg);
+            border: 1px solid var(--form-border);
+            border-radius: 15px;
+            padding: 40px;
+            direction: rtl;
+            text-align: right;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .custom-form-title {
+            text-align: center;
+            color: var(--form-primary);
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+
+        .custom-form-group {
+            margin-bottom: 25px;
+        }
+
+        .custom-form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .custom-form-control {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 15px;
+            box-sizing: border-box;
+            background-color: #fff;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .custom-form-control:focus {
+            outline: none;
+            border-color: var(--form-primary);
+            box-shadow: 0 0 0 3px rgba(10, 88, 202, 0.15);
+        }
+
+        .custom-form-control::placeholder {
+            color: #adb5bd;
+        }
+        
+        input[type="tel"].custom-form-control {
+            direction: ltr;
+            text-align: right;
+        }
+
+        textarea.custom-form-control {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .custom-submit-btn {
+            width: 100%;
+            background-color: var(--form-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: inherit;
+            margin-top: 10px;
+        }
+
+        .custom-submit-btn:hover {
+            background-color: #084298;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>EG Dental Lab</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+            </div>
+    </nav>
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="img/carousel-1.png" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                
+                                <h1 class="display-3 text-white animated slideInDown">طباعة الأسنان المعدن بالليزر بدقة عالية</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">معمل متخصص في تصنيع التركيبات الاسنان المعدن والزركون باستخدام أحدث تقنيات</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="img/carousel-2.jpeg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                         <div class="col-sm-10 col-lg-8">
+                                
+                                <h1 class="display-3 text-white animated slideInDown">طباعة الأسنان المعدن بالليزر بدقة عالية</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">معمل متخصص في تصنيع التركيبات الاسنان المعدن والزركون باستخدام أحدث تقنيات</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                
+                <h1 class="mb-5">فروعنا</h1>
+            </div>
+<div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <h5 class="mb-3">القاهره</h5>
+                            <p>٤ عمارات اول مايو الدور الارضي مدخل ب شقه ١ طريق النصر بجوار قسم اول مدينه نصر</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <h5 class="mb-3">المنصورة</h5>
+                            <p>شارع قناه السويس امام المعسكر اعلي العمريطي للزيوت الدور الاول</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <h5 class="mb-3">الاسكندريه</h5>
+<p dir="rtl" style="text-align: right;">66 ش كانوب كامب شيزار متفرع من ش اللاجيتيه</p>                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <h5 class="mb-3">زركون فرع المنصوره</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                 <h1 class="mb-5">خدمتنا</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="img/cat-3.png" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">فريم وورك نيكل كروم او تيتانيوم</h5>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden h-100" href="">
+                                <img class="img-fluid w-100 h-100" src="img/Implant.jpg" alt="" style="object-fit: cover;">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">زرعات وحالات تقويم</h5>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden h-100" href="">
+                                <img class="img-fluid w-100 h-100" src="img/cat-1.png" alt="" style="object-fit: cover;">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">كروان و بريدج</h5>
+                                </div>
+                            </a>
+                        </div>
+                        </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <img class="img-fluid position-absolute w-100 h-100" src="img/cat-4.jpeg" alt="" style="object-fit: cover;">
+                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
+                            <h5 class="m-0">تصميم ديجيتال كامل للهياكل والتركيبات , فنش او بدون فنش</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+    .video-frame {
+        background-color: #ffffff; /* لون خلفية الفريم */
+        padding: 12px; /* مساحة الفريم الأبيض حوالين الفيديو */
+        border-radius: 20px; /* دوران أطراف الفريم من بره */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* ضل ناعم جداً بيدي عمق للشكل */
+        border: 1px solid #f0f0f0; /* تحديد خفيف للفريم */
+    }
+    
+    .video-frame video {
+        border-radius: 12px; /* دوران أطراف الفيديو نفسه عشان يتماشى مع الفريم */
+        outline: none;
+        display: block; /* عشان نشيل أي مسافات فاضية تحت الفيديو */
+    }
+</style>
+
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h1 class="mb-5"> ❤️ أراء بعض العملاء</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="video-frame">
+                    <video class="w-100" controls>
+                        <source src="img/video.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديوهات.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        
+        <div class="custom-branches-container">
+            <h2 class="custom-branches-title">أرقام هواتف الفروع </h2>
+            <div class="custom-branches-grid">
+                <div class="custom-branch-card">
+                    <div class="custom-branch-name">فرع المنصورة</div>
+                    <div class="custom-branch-phone">رقم الاداره : 01067666861
+استلام ملفات: 01017374934</div>
+                </div>
+                <div class="custom-branch-card">
+                    <div class="custom-branch-name">فرع القاهرة</div>
+                    <div class="custom-branch-phone">رقم الاداره : 01055736242
+استلام ملفات: 01055468309</div>
+                </div>
+                <div class="custom-branch-card">
+                    <div class="custom-branch-name">فرع الإسكندرية</div>
+                    <div class="custom-branch-phone">رقم الاداره : 01040605254
+استلام ملفات: 01515856711div>
+                </div>
+               
+                </div>
+                 <div class="custom-branch-card">
+                    <div class="custom-branch-name">زركون فرع المنصوره </div>
+                    <div class="custom-branch-phone">رقم الاداره : 01070890783
+استلام ملفات: 01005293796
+                </div>
+            </div>
+        </div>
+<br>
+<br>
+        <div class="custom-form-container">
+            <h2 class="custom-form-title">تواصل معانا</h2>
+            <form id="printForm">
+                <div class="custom-form-group">
+                    <label for="doctorName">اسم الطبيب</label>
+                    <input type="text" id="doctorName" class="custom-form-control" placeholder="اكتب اسمك" required>
+                </div>
+
+                <div class="custom-form-group">
+                    <label for="phoneNumber">رقم الهاتف</label>
+                    <input type="tel" id="phoneNumber" class="custom-form-control" placeholder="01XXXXXXXXX" required>
+                </div>
+
+                <div class="custom-form-group">
+                    <label for="branchSelect">اختر الفرع</label>
+                    <select id="branchSelect" class="custom-form-control" required>
+                        <option value="" disabled selected>اختر الفرع</option>
+                        <option value="201067666861">فرع المنصورة</option>
+                        <option value="201055736242">فرع القاهرة</option>
+                        <option value="201040605254">فرع الإسكندرية</option>
+                        <option value="201070890783"> زركون فرعون المنصوره</option>
+                    </select>
+                </div>
+
+                <div class="custom-form-group">
+                    <label for="notes">ملاحظات</label>
+                    <textarea id="notes" class="custom-form-control" placeholder="اكتب التفاصيل هنا"></textarea>
+                </div>
+
+                <button type="submit" class="custom-submit-btn">إرسال الطلب</button>
+            </form>
+        </div>
+    </div>
+<style>
+    .modern-copyright {
+        border-top: 1px solid #eaeaea; /* خط علوي خفيف وأنيق */
+        padding: 20px 0;
+        font-size: 15px;
+        color: #6c757d; /* لون نص رمادي مريح للعين */
+    }
+
+    .modern-copyright a {
+        color: #0A58CA; /* لون الرابط (أزرق متناسق) */
+        text-decoration: none; /* إزالة الخط السفلي الثابت */
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .modern-copyright a:hover {
+        color: #084298; /* درجة أغمق عند مرور الماوس */
+        text-decoration: underline; /* ظهور الخط عند الهوفر فقط */
+    }
+</style>
+
+<div class="container-fluid modern-copyright">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                &copy; <a href="#">Egyptian German Dental</a>, All Right Reserved.
+            </div>
+            
+            <div class="col-md-6 text-center text-md-end">
+                Designed By <a href="https://www.linkedin.com/in/mohamed-mostafa-abo-elsaad-19206730a?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer">Mohamed AbuElsaad</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById('printForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const doctorName = document.getElementById('doctorName').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const branchSelect = document.getElementById('branchSelect');
+            const branchPhone = branchSelect.value; 
+            const branchName = branchSelect.options[branchSelect.selectedIndex].text; 
+            const notes = document.getElementById('notes').value.trim();
+
+            const message = `طلب جديد:
+----------------
+اسم الطبيب: ${doctorName}
+رقم الهاتف: ${phoneNumber}
+الفرع المختار: ${branchName}
+ملاحظات: ${notes}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${branchPhone}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+
+</html>

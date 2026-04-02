@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #0b0e14;
+    color: white;
+    overflow: hidden;
+}
+
+/* ── Typing element ── */
+.typing {
+    font-family: monospace;
+    font-size: clamp(1rem, 2.5vw, 3rem);
+    white-space: nowrap;
+    border-right: 0.1em solid white;
+    animation: blink-cursor 0.75s step-end infinite;
+    padding-right: 4px;
+}
+
+/* Hide cursor when typing is done */
+.typing.done {
+    border-right-color: transparent;
+    animation: none;
+}
+
+@keyframes blink-cursor {
+    50% { border-right-color: transparent; }
+}
+
+/* ── Transition overlay ── */
+.transition-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.t-layer {
+    position: absolute;
+    inset: 0;
+    transform: translateY(100%);
+}
+
+.layer-1 { background: #1a8fe3; }
+.layer-2 { background: #0d5fa0; }
+.layer-3 { background: #0b0e14; }
+
+.transition-overlay.go {
+    pointer-events: all;
+}
+
+.transition-overlay.go .t-layer {
+    animation: slideUp 0.45s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.transition-overlay.go .layer-1 { animation-delay: 0s;    }
+.transition-overlay.go .layer-2 { animation-delay: 0.08s; }
+.transition-overlay.go .layer-3 { animation-delay: 0.16s; }
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0%);   }
+}
